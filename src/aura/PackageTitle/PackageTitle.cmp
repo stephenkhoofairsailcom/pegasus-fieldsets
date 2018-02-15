@@ -1,0 +1,25 @@
+<aura:component >
+	<aura:attribute name="activePackage" type="SPCMT1.FieldsetPackage"/>
+	<aura:attribute name="rows" type="SPCMT1.FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="SPCMT1.FieldsetRow[]" />
+		
+	<div class="slds-media">
+		<div class="slds-media__figure">
+			<span class="slds-icon_container slds-icon-standard-opportunity" title="Object Management">		
+				<lightning:icon iconName="custom:custom19" size="medium" alternativeText="Object Management"/>
+			</span>
+		</div>
+		<div class="slds-media__body">
+			<h1 class="slds-page-header__title slds-truncate slds-align-middle" title="{!v.activePackage.name}">{!v.activePackage.name} Managed Objects</h1>
+			<p class="slds-text-body_small slds-line-height_reset">
+				<aura:if isTrue="{!v.rowsFiltered.length > 0}">
+					{!v.rowsFiltered.length}	 items of {!v.rows.length}
+					<aura:set attribute="else">
+						{!v.rows.length}	 items
+					</aura:set>
+				</aura:if>
+				
+			</p>
+		</div>
+	</div>
+</aura:component>

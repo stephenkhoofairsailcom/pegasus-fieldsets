@@ -1,0 +1,9 @@
+<aura:component >
+	<aura:attribute name="activePackage" type="SPCMT1.FieldsetPackage"/>
+	<aura:attribute name="rows" type="SPCMT1.FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="SPCMT1.FieldsetRow[]" />	
+	<aura:attribute name="filterString" type="String"/>
+
+	<lightning:input type="search" placeholder="Apply filters" name="search" label="Search" variant="label-hidden"/> 
+
+</aura:component>

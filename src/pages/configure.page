@@ -1,0 +1,17 @@
+<apex:page controller="SPCMT1.ConfigureController">
+        <apex:includeLightning />
+
+    
+    <div id="fieldsetManagerdiv" > </div>
+   <!-- Start {!startTime} -->
+    <script>
+        $Lightning.use("SPCMT1:FieldSetManagerApp", function() {
+            $Lightning.createComponent(
+                    "SPCMT1:FieldSetManager",
+                    {},
+                    "fieldsetManagerdiv"
+            );
+        });
+    </script>
+    <!--End {!endTime}-->
+</apex:page>

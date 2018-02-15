@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Field_Path__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Field Path</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Fieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Fieldset</label>
+        <referenceTo>Fieldset__mdt</referenceTo>
+        <relationshipLabel>Fieldset Members</relationshipLabel>
+        <relationshipName>Fieldset_Members</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Is the field deleted</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Is Deleted</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Displayed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Is the field displayed in the fieldset</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Is Displayed</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Relationship__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Is Relationship</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Is Required</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Order</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Source Field</label>
+        <metadataRelationshipControllingField>Fieldset_Member__mdt.Source_Object__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Fieldset_Members</relationshipLabel>
+        <relationshipName>Fieldset_Members</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Object__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Source Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Fieldset_Members</relationshipLabel>
+        <relationshipName>Fieldset_Members</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>Fieldset Member</label>
+    <pluralLabel>Fieldset Members</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

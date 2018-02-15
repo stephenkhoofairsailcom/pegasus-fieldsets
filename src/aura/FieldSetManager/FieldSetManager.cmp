@@ -1,0 +1,12 @@
+<aura:component controller="SPCMT1.FieldSetManagerController" access="global" implements="force:appHostable,flexipage:availableForAllPageTypes">
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+	<aura:attribute name="packageNames" type="SPCMT1.FieldsetPackage[]" />
+	<aura:attribute name="activePackage" type="SPCMT1.FieldsetPackage"/>
+	<aura:attribute name="rows" type="SPCMT1.FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="SPCMT1.FieldsetRow[]" />
+
+	<SPCMT1:FieldsetTabs packageNames="{!v.packageNames}" activePackage="{!v.activePackage}" rows="{!v.rows}" />
+
+	<!--<ui:outputText value="{!v.activePackage.name}" /> -->
+</aura:component>
