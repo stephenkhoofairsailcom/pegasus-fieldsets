@@ -19,6 +19,11 @@
        });
 		action.setStorable();
 	    action.setCallback(this, function(response) {
+
+			console.log("Tab %s loaded in %fms", 
+					namespace,
+					performance.now() - startTime);
+
             var state = response.getState();
             if (state === "SUCCESS") {
 				console.log('->query rows success');
@@ -29,6 +34,7 @@
                 console.log("Failed with state: " + state);
             }
         });
+		var startTime = performance.now();
 		    // Send action off to be executed
         $A.enqueueAction(action);
 	}
