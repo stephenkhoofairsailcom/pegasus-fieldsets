@@ -1,15 +1,10 @@
 <aura:component >
-
-	<aura:attribute name="activePackage" type="SPCMT1.FieldsetPackage"/>
-	<aura:attribute name="rows" type="SPCMT1.FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="SPCMT1.FieldsetRow[]" />
+	<aura:attribute name="rows" type="FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
 	<aura:attribute name="columns" type="String[]" />
 	<!--load a data for table-->
 	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
-
-	<aura:attribute name="rows1" type="SPCMT1.FieldsetRow[]" default="[{'objectID': '1', 'label':'label1', 'fieldsetUrl':'https://www.google.com',  'name':'myname'}]" 
-	/>
-
-	<lightning:datatable data="{!v.rows}" columns="{!v.columns}" keyField="objectID" hideCheckboxColumn="true"/> 
-
+	<aura:if isTrue="{!and(v.rows != null, v.rows.length > 0)}">
+		<lightning:datatable data="{!v.rows}" columns="{!v.columns}" keyField="objectID" hideCheckboxColumn="true"/> 	
+	</aura:if>
 </aura:component>

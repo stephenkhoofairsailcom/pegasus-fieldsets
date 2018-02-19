@@ -1,0 +1,19 @@
+<aura:component controller="FieldSetManagerController">
+	<aura:attribute name="activePackage" type="FieldsetPackage"/>
+	<aura:attribute name="rows" type="FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
+
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+	<lightning:layout >
+		<lightning:layoutitem flexibility="auto">
+			<c:PackageTitle activePackage="{!v.activePackage}" rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}"/>
+		</lightning:layoutitem>
+		<lightning:layoutitem flexibility="no-flex" class="slds-grid slds-align-top slds-p-bottom_xx-small">
+			<div class="slds-button-group" role="group">
+				<c:ObjectFilter rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" activePackage="{!v.activePackage}" /> 								
+			</div>
+		</lightning:layoutitem>
+	</lightning:layout>				
+	<c:ObjectTable rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" />				
+	
+</aura:component>

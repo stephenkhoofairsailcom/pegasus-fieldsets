@@ -19,6 +19,7 @@
     <types>
         <members>FieldSetManager</members>
         <members>FieldSetManagerApp</members>
+        <members>FieldsetTabContent</members>
         <members>FieldsetTabs</members>
         <members>ObjectFilter</members>
         <members>ObjectTable</members>

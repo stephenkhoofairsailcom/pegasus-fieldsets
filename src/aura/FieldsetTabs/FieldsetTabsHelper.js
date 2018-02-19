@@ -1,5 +1,5 @@
 ({	
-
+/*
 	findSelectedPackage: function (component, fieldsetPackage){
 		var fieldsetPackages = component.get("v.packageNames");
 		for(var itemNum = 0;  itemNum < fieldsetPackages.length; itemNum++){	
@@ -10,8 +10,8 @@
 		}
 		return null;
 	},
-
-	queryRows: function (component, namespace){
+	*/
+	/*queryRows: function (component, namespace){
 		var action = component.get('c.getRows');
 		
 		action.setParams({
@@ -37,7 +37,7 @@
 		var startTime = performance.now();
 		    // Send action off to be executed
         $A.enqueueAction(action);
-	}
+	}*/
 	
 
 })

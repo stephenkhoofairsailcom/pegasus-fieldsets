@@ -1,23 +1,15 @@
-<aura:component controller="SPCMT1.FieldSetManagerController">
-	<aura:attribute name="packageNames" type="SPCMT1.FieldsetPackage[]" />
-	<aura:attribute name="activePackage" type="SPCMT1.FieldsetPackage"/>
-	<aura:attribute name="rows" type="SPCMT1.FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="SPCMT1.FieldsetRow[]" />
+<aura:component controller="FieldSetManagerController">
+	<aura:attribute name="packageNames" type="FieldsetPackage[]" />
+	<aura:attribute name="activePackage" type="FieldsetPackage"/>
+	<aura:attribute name="rows" type="FieldsetRow[]" />
+	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
 
 	<lightning:tabset variant="scoped" >
 		<aura:iteration var="package" items="{!v.packageNames}">
-			<lightning:tab onactive="{! c.onTabActive }" label="{!package.name}" id="{!package.namespace}">
-				<lightning:layout >
-					<lightning:layoutitem flexibility="auto">
-						<SPCMT1:PackageTitle activePackage="{!v.activePackage}" rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}"/>
-					</lightning:layoutitem>
-					<lightning:layoutitem flexibility="no-flex" class="slds-grid slds-align-top slds-p-bottom_xx-small">
-						<div class="slds-button-group" role="group">
-							<SPCMT1:ObjectFilter rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" activePackage="{!v.activePackage}" /> 								
-						</div>
-					</lightning:layoutitem>
-				</lightning:layout>				
-				<SPCMT1:ObjectTable rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" />				
+			<lightning:tab label="{!package.name}" id="{!package.namespace}">
+
+			<c:FieldsetTabContent activePackage="{!package}" />
+
 			</lightning:tab>
 		</aura:iteration>
 	</lightning:tabset>

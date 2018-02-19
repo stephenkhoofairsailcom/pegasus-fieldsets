@@ -1,5 +1,11 @@
 ({
 	
+	/* @description gets a list of FieldsetPackage installed in the system.	
+	 * @param		component for which this init action is going to be executed
+	 * @param		events registered in the Component
+	 * @param		helper for the Component	
+	 * @return		none
+	 */
 	doInit: function (component, event, helper) {
 		console.log('->call doInit');
 
@@ -12,7 +18,6 @@
             if (state === "SUCCESS") {
 				console.log('->call success');
                 component.set("v.packageNames", response.getReturnValue());
-				component.set("v.activePackage", response.getReturnValue()[1]);
             }
             else {
                 console.log("Failed with state: " + state);

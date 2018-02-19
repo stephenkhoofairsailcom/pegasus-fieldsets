@@ -1,6 +1,6 @@
-<apex:page controller="SPCMT1.ConfigureController">
+<apex:page controller="ConfigureController">
         <apex:includeLightning />
-
+        <apex:messages ></apex:messages>
     
     <div id="fieldsetManagerdiv" > </div>
    <!-- Start {!startTime} -->
