@@ -1,18 +1,13 @@
-<aura:component controller="FieldSetManagerController" access="global" implements="force:appHostable,flexipage:availableForAllPageTypes">
-
-
+<aura:component controller="FieldSetManagerController" access="GLOBAL" implements="force:appHostable,flexipage:availableForAllPageTypes">
 	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
-
 	<aura:attribute name="packageNames" type="FieldsetPackage[]" />
+	<aura:attribute name="currentPackage" type="FieldsetPackage" />
 
 	<lightning:tabset variant="scoped" >
 		<aura:iteration var="package" items="{!v.packageNames}">
-			<lightning:tab label="{!package.name}" id="{!package.namespace}">
-
-			<c:FieldsetTabContent activePackage="{!package}" />
-
+			<lightning:tab label="{!package.name}" id="{!package.namespace}"  onactive="{!c.setNewCurrent}">
+				<c:FieldsetTabContent packageName="{!package}"  currentPackage="{!v.currentPackage}"/>
 			</lightning:tab>
 		</aura:iteration>
 	</lightning:tabset>
-
 </aura:component>

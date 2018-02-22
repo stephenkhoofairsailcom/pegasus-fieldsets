@@ -1,9 +1,10 @@
-<aura:component >
-	<aura:attribute name="activePackage" type="FieldsetPackage"/>
-	<aura:attribute name="rows" type="FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />	
-	<aura:attribute name="filterString" type="String"/>
+<aura:component access="GLOBAL">
+	<aura:attribute name="masterRows" type="FieldsetRow[]" />
+	<aura:attribute name="displayedRows" type="FieldsetRow[]" />
+	 
+	<aura:method name="clearFilterString" action="{!c.resetFilter}">
+		<aura:attribute name="searchedText" type="Aura.Component"/> 
+	</aura:method>
 
-	<lightning:input type="search" placeholder="Apply filters" name="search" label="Search" variant="label-hidden"/> 
-
+	<lightning:input type="text" aura:id="filterString" placeholder="Search" label="Search" variant="label-hidden" onchange="{!c.searchKeyChange}" />
 </aura:component>

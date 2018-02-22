@@ -1,19 +1,25 @@
 <aura:component controller="FieldSetManagerController">
-	<aura:attribute name="activePackage" type="FieldsetPackage"/>
-	<aura:attribute name="rows" type="FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
+	<aura:attribute name="activePackage" type="FieldsetPackage"  required="false"/>
+
+
+	<aura:attribute name="packageName" type="FieldsetPackage"/>
+	<aura:attribute name="masterRows" type="FieldsetRow[]" />
+	<aura:attribute name="displayedRows" type="FieldsetRow[]" />
+	<aura:attribute name="currentPackage" type="FieldsetPackage" />
 
 	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+	<aura:handler name="change" action="{!c.clearFilter}" value="{!v.currentPackage}" />
+			
 	<lightning:layout >
 		<lightning:layoutitem flexibility="auto">
-			<c:PackageTitle activePackage="{!v.activePackage}" rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}"/>
+			<c:PackageTitle packageName="{!v.packageName}" masterRows="{!v.masterRows}" displayedRows="{!v.displayedRows}"/>  
 		</lightning:layoutitem>
 		<lightning:layoutitem flexibility="no-flex" class="slds-grid slds-align-top slds-p-bottom_xx-small">
 			<div class="slds-button-group" role="group">
-				<c:ObjectFilter rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" activePackage="{!v.activePackage}" /> 								
+				<c:ObjectFilter masterRows="{!v.masterRows}" displayedRows="{!v.displayedRows}" aura:id="filterCmp"/> 					
 			</div>
 		</lightning:layoutitem>
 	</lightning:layout>				
-	<c:ObjectTable rows="{!v.rows}" rowsFiltered="{!v.rowsFiltered}" />				
+	<c:ObjectTable displayedRows="{!v.displayedRows}" />		
 	
 </aura:component>

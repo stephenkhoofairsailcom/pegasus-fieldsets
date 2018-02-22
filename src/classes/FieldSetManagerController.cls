@@ -12,6 +12,5 @@ public class FieldSetManagerController {
 		return FieldSetManagerHelper.buildFieldsetRows(packageName);		
 	}
 
-	
 
 }

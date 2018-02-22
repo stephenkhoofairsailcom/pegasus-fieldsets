@@ -8,7 +8,7 @@
 		<aura:iteration var="package" items="{!v.packageNames}">
 			<lightning:tab label="{!package.name}" id="{!package.namespace}">
 
-			<c:FieldsetTabContent activePackage="{!package}" />
+				<c:FieldsetTabContent activePackage="{!package}" />
 
 			</lightning:tab>
 		</aura:iteration>

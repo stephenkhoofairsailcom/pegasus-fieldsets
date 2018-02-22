@@ -13,6 +13,8 @@ public class FieldSetManagerHelper {
 		packageMap.put( 'fDL',		'DataLoader');
 		packageMap.put( 'fAsync',	'Async Reporting');
 		packageMap.put( 'SPCMT1',	'SPCMT1 Name');
+		packageMap.put( 'TestTab',	'Test tab');
+
 		packageMap.put( 'fauto',	'Auto Enrolment');
 
 	}
@@ -35,6 +37,7 @@ public class FieldSetManagerHelper {
 		List<String> result = new List<String>(packagesSet);
 		result.sort();
 		result.add(0,'fHCM2');
+		result.add(1,'TestTab');
 		return result;
 	}
 	/*

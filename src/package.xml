@@ -5,6 +5,7 @@
     <namespacePrefix>SPCMT1</namespacePrefix>
     <types>
         <members>ConfigureController</members>
+        <members>ErrorHandler</members>
         <members>FieldSetManagerController</members>
         <members>FieldSetManagerHelper</members>
         <members>FieldsetPackage</members>

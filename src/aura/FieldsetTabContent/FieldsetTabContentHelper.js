@@ -17,15 +17,16 @@
 					namespace,
 					performance.now() - startTime);
 
-            var state = response.getState();
+            let state = response.getState();
             if (state === "SUCCESS") {
 				console.log('->query rows success');
 				let rowValues = response.getReturnValue();
 				if(rowValues !== null){
-					component.set("v.rows", this.sortByLabel(rowValues));
-					//component.set("v.rowsFiltered", null);
+					//component.set("v.rows", rowValues);
+					component.set("v.masterRows", this.sortByLabel(rowValues));
+					component.set("v.displayedRows", this.sortByLabel(rowValues));
 				}else{
-					component.set("v.rows", rowValues);
+					component.set("v.masterRows", rowValues);
 					console.log('An error occurred while loading the table');
 				}
             }

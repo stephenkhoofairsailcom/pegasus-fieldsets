@@ -99,7 +99,7 @@ private class TestClass {
 	@IsTest private static void test_Controller(){
 		String packageName = [SELECT NamespacePrefix FROM Organization].NamespacePrefix;
 		ConfigureController controller = new ConfigureController();
-		System.assert(controller.buildFieldsetRows != null);
+		System.assert(controller.buildFieldsetRows == null);
 		System.assert(controller.SobjectsInPackage != null);
 
 	}
