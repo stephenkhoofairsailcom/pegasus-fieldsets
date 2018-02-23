@@ -10,7 +10,7 @@ public class ConfigureController {
 			for(FieldsetRow fsRow: myList){
 				value = value + fsRow.toString() + '<br/>';
 			}
-			return JSON.serializePretty(myList);
+			return null;
 		}
 		set;
 	}

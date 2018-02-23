@@ -1,14 +1,11 @@
 <aura:component controller="FieldSetManagerController">
 	<aura:attribute name="packageNames" type="FieldsetPackage[]" />
-	<aura:attribute name="activePackage" type="FieldsetPackage"/>
-	<aura:attribute name="rows" type="FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
 
 	<lightning:tabset variant="scoped" >
 		<aura:iteration var="package" items="{!v.packageNames}">
 			<lightning:tab label="{!package.name}" id="{!package.namespace}">
 
-			<c:FieldsetTabContent activePackage="{!package}" />
+				<c:FieldsetTabContent activePackage="{!package}" />
 
 			</lightning:tab>
 		</aura:iteration>

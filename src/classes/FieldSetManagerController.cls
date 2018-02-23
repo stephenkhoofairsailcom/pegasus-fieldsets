@@ -12,6 +12,10 @@ public class FieldSetManagerController {
 		return FieldSetManagerHelper.buildFieldsetRows(packageName);		
 	}
 
-	
+	@AuraEnabled
+	public static Map<String, String> getPackagesMap(){
+		return 	FieldSetManagerHelper.getPackagesMap();
+	}
+
 
 }

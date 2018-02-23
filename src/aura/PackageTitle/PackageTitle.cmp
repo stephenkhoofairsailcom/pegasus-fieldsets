@@ -1,7 +1,11 @@
 <aura:component >
-	<aura:attribute name="activePackage" type="FieldsetPackage"/>
-	<aura:attribute name="rows" type="FieldsetRow[]" />
-	<aura:attribute name="rowsFiltered" type="FieldsetRow[]" />
+	<aura:attribute name="packageName" type="FieldsetPackage"/>
+	<aura:attribute name="masterRows" type="FieldsetRow[]" />
+	<aura:attribute name="displayedRows" type="FieldsetRow[]" />
+	<aura:attribute name="showTotalRecords" type="Boolean" default="false" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+	<aura:handler name="change" value="{!v.displayedRows}" action="{!c.onChangeDisplayedRows}" />
 		
 	<div class="slds-media">
 		<div class="slds-media__figure">
@@ -10,17 +14,12 @@
 			</span>
 		</div>
 		<div class="slds-media__body">
-			<h1 class="slds-page-header__title slds-truncate slds-align-middle" title="{!v.activePackage.name}">{!v.activePackage.name} Managed Objects</h1>
+			<h1 class="slds-page-header__title slds-truncate slds-align-middle" title="{!v.packageName.name}">{!v.packageName.name} Managed Objects</h1>
 			<p class="slds-text-body_small slds-line-height_reset">
-				<aura:if isTrue="{!and(v.rowsFiltered != null,v.rowsFiltered.length > 0)}">
-					{!v.rowsFiltered.length}	 items of {!v.rows.length}
-					<aura:set attribute="else">
-						<aura:if isTrue="{!and(v.rows != null, v.rows.length > 0)}">
-							{!v.rows.length}	 items
-						</aura:if>
-					</aura:set>
-				</aura:if>
-				
+				{!v.displayedRows.length} items				
+				<aura:if isTrue="{!v.showTotalRecords}">
+					 of {!v.masterRows.length}					
+				</aura:if>				
 			</p>
 		</div>
 	</div>

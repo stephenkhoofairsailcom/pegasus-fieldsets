@@ -1,4 +1,4 @@
-public class FieldsetRow {
+public class FieldsetRow{
 
 	@AuraEnabled String	objectID {get; set;}
 	@AuraEnabled String label {get; set;}
