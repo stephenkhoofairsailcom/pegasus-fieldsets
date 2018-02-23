@@ -67,6 +67,14 @@ public class FieldSetManagerHelper {
 		Map<String, String> objectDetails = getSobjectsDetails(packageName);
 		if(objectDetails == null || objectDetails.keySet().size() == 0){
 			System.debug('Cannot find objects details for package ' + packageName);
+
+			/*FOR TESTING PURPOSES: TESTING SCROLL BAR*/
+			if(packageName=='TestTab'){
+				for(Integer i = 0; i<200; i++){
+					FieldsetRow rowFieldset = new FieldsetRow('Random BE Object ' + i, 'Random BE Object ' + i,'Random BE Object ' + i, 'https://www.google.com');
+					listFieldsetRows.add(rowFieldset);
+				}
+			}
 			return listFieldsetRows;
 		}
 		for(Schema.DescribeSObjectResult objDesc : objectsInPackage){
@@ -79,6 +87,8 @@ public class FieldSetManagerHelper {
 			FieldsetRow rowFieldset = new FieldsetRow(sobjDurableId, objDesc.getLabel(), objDesc.getName(), sobjectUrl);
 			listFieldsetRows.add(rowFieldset);
 		}
+
+		
 		return listFieldsetRows;
 	}
 	
@@ -120,6 +130,12 @@ public class FieldSetManagerHelper {
 			objectDetails.put(sobj.QualifiedApiName, sobj.DurableId);	
 		}
 		return objectDetails;
+	}
+
+
+	public static Map<String, String> getPackagesMap(){
+	System.debug('ello ello ');
+		return packageMap;
 	}
 
 }

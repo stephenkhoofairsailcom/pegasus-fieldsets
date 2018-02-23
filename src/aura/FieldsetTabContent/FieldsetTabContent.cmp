@@ -1,7 +1,5 @@
 <aura:component controller="FieldSetManagerController">
-	<aura:attribute name="activePackage" type="FieldsetPackage"  required="false"/>
-
-
+	<aura:attribute name="activePackage" type="FieldsetPackage" required="false"/>
 	<aura:attribute name="packageName" type="FieldsetPackage"/>
 	<aura:attribute name="masterRows" type="FieldsetRow[]" />
 	<aura:attribute name="displayedRows" type="FieldsetRow[]" />

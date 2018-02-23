@@ -8,10 +8,14 @@
 	 * @return		none			
 	 */
 	getShowTotalRecords: function (component) {
-		let myMasterRows = component.get("v.masterRows");
-		let mydisplayedRows = component.get("v.displayedRows");
-		let showTotalRecords =  myMasterRows != undefined && myMasterRows != null && mydisplayedRows != undefined && mydisplayedRows != null && mydisplayedRows.length != myMasterRows.length;
+		try{
+			let myMasterRows = component.get("v.masterRows");
+			let mydisplayedRows = component.get("v.displayedRows");
+			let showTotalRecords =  myMasterRows != undefined && myMasterRows != null && mydisplayedRows != undefined && mydisplayedRows != null && mydisplayedRows.length != myMasterRows.length;
 		
-		component.set('v.showTotalRecords', showTotalRecords);
+			component.set('v.showTotalRecords', showTotalRecords);
+		}catch(err){
+			console.error(err);
+		}
 	}
 })

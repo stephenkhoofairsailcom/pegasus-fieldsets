@@ -1,4 +1,4 @@
-<aura:component access="GLOBAL">
+<aura:component >
 	<aura:attribute name="masterRows" type="FieldsetRow[]" />
 	<aura:attribute name="displayedRows" type="FieldsetRow[]" />
 	 

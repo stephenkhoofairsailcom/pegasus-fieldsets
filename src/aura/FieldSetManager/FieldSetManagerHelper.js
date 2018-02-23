@@ -5,17 +5,9 @@
 	 * @return		FieldsetPackage object
 	 */
 	findPackage: function (component,clickedTab) {
-		//map with all packages that can be installed and uses fieldsets
-		const packagemap = {'fHCM2':"HCM", 
-							'SPCMT1':"SPCMT1 Name",
-							'fRecruit':'Recruit',
-							'fta':'Time' ,
-							'fpay':'Payflow', 
-							'fDL':'DataLoader', 
-							'fAsync':'Async Reporting', 
-							'fauto':'Auto Enrolment'};
-				
-		let packageName = packagemap[clickedTab];		
+		//map with all packages that can be installed and uses fieldsets	
+		let myPackageMap = component.get('v.packagesMap');
+		let packageName = myPackageMap[clickedTab];		
 		return {'name':packageName, 'namespace':clickedTab};
 	},
 

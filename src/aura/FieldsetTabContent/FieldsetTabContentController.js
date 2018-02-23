@@ -8,11 +8,15 @@
 	 * @return		none
 	 */
 	doInit: function (component, event, helper) {
-		let packageNamespace = component.get('v.packageName');
-		//to be removed when moving to HCM??
-		console.log('event: ' + packageNamespace.namespace);
-		//query Rows, sort rows and clear filter
-		helper.queryRows(component,packageNamespace.namespace);			
+		try{
+			let packageNamespace = component.get('v.packageName');
+			//to be removed when moving to HCM??
+			console.log('event: ' + packageNamespace.namespace);
+			//query Rows, sort rows and clear filter
+			helper.queryRows(component,packageNamespace.namespace);			
+		}catch(err){
+			console.error(err);
+		}
 	},
 
 	/* @description calls to the clearFilterString method exposed in ObjecFilter.cmp
@@ -23,11 +27,13 @@
 	 * @return		none
 	 */
 	clearFilter: function (component, event, helper){
-		//check if the tab has changed
-		let current = component.get('v.currentPackage');
-		//looking for obBjectFilter.cmp
+		try{
+		//looking for objectFilter.cmp
 		let filterCmp = component.find("filterCmp");
 		//using exposed method to reset filters
-		filterCmp.clearFilterString(component);			
+		filterCmp.clearFilterString(component);
+		} catch(err){
+			console.error(err);
+		}
 	}
 })

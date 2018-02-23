@@ -7,10 +7,14 @@
 	 * @return		none			
 	 */
 	searchKeyChange: function (component, event, helper) {
-		let searchKey = component.find("filterString").get("v.value");
-		let formattedKey =  helper.formatSearchKey(searchKey);
+		try{
+			let searchKey = component.find("filterString").get("v.value");
+			let formattedKey =  helper.formatSearchKey(searchKey);
 		
-		helper.findByName(component,formattedKey);
+			helper.findByName(component,formattedKey);
+		}catch(err){
+			console.error(err);
+		}
 	},
     
 	/* @description Resets the search box and the displayrows	
@@ -20,11 +24,14 @@
 	 * @return		none			
 	 */
     resetFilter: function (component){        
-		let masterRows = component.get('v.masterRows');
+		try{
+			let masterRows = component.get('v.masterRows');
 
-		component.find("filterString").set("v.value",null);
-		//component.find("lololo").set("v.value",null);		
-		component.set('v.displayedRows',masterRows);
+			component.find("filterString").set("v.value",null);
+			component.set('v.displayedRows',masterRows);
+		}catch(err){
+			console.error(err);
+		}
     }
   
 })

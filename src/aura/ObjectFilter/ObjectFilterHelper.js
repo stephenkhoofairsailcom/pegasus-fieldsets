@@ -6,20 +6,19 @@
 	 * @return		none			
 	 */
 	findByName: function (component, searchKey) {
-		let myRows = component.get("v.masterRows");
-		if(searchKey != undefined && searchKey != null && searchKey != ''){
-			
-			let myFilteredRows = myRows.filter(function(row){
-				console.log(searchKey.trim().toLowerCase());
-				let isValueMatching = row.label.trim().toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
-				return isValueMatching;	
-			}); 
-			
-			component.set("v.displayedRows", myFilteredRows);
-			console.log(myFilteredRows);
-		} else{
-			console.log('in else');
-			component.set("v.displayedRows", myRows);
+		try{
+			let myRows = component.get("v.masterRows");
+			if(searchKey != undefined && searchKey != null && searchKey != ''){
+				let myFilteredRows = myRows.filter(function(row){
+					let isValueMatching = row.label.trim().toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
+					return isValueMatching;	
+				}); 		
+				component.set("v.displayedRows", myFilteredRows);
+			} else{
+				component.set("v.displayedRows", myRows);
+			}
+		}catch(err){
+			console.error(err);
 		}
 	},
 
@@ -31,10 +30,13 @@
 	 */
 	formatSearchKey: function(searchKey){
 		let key = null;
-		if(searchKey != undefined && searchKey != null){
-			key = searchKey.replace(/\s\s+/g, ' ').trim();
-		}
-
-		return key;
+		try{			
+			if(searchKey != undefined && searchKey != null){
+				key = searchKey.replace(/\s\s+/g, ' ').trim();
+			}
+		}catch(err){
+			console.error(err);
+		}	
+		return key;	
 	}
 })

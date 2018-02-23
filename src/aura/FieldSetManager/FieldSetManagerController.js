@@ -19,6 +19,18 @@
             }
         });
 		$A.enqueueAction(action);
+		
+		let getMap = component.get('c.getPackagesMap');
+        // Add callback behavior for when response is received
+        getMap.setCallback(this, function(response) {
+            let state = response.getState();
+            if (state === "SUCCESS") {
+                component.set("v.packagesMap", response.getReturnValue());				
+            } else {
+                console.log("Failed with state: " + state);
+            }
+        });
+		$A.enqueueAction(getMap);
 
 		//set default value for currentPackage -> HCM
 		component.set('v.currentPackage', {'name':'HCM', 'namespace':'fHCM2'});				
@@ -33,8 +45,7 @@
 	setNewCurrent: function(component,event,helper){
 		let tab = event.getSource();
 		let clickedTab = tab.get('v.id');
-		let newPackage = helper.findPackage(component, clickedTab);
-		
+		let newPackage = helper.findPackage(component, clickedTab);		
 		component.set('v.currentPackage', newPackage);
 	}
 })
