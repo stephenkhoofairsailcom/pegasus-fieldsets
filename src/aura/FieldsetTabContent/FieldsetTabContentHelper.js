@@ -6,7 +6,9 @@
 	 */
 	queryRows: function (component, namespace){
 		try{
-			let action = component.get('c.getRows');
+			//showing the spinner
+			component.set('v.showSpinner', true);	
+			let action = component.get('c.getRows');		
 		
 			action.setParams({
 			   "packageName": namespace
@@ -29,11 +31,13 @@
 						component.set("v.masterRows", rowValues);
 						component.set("v.displayedRows", rowValues);
 						console.warn('There are no Objects in the ' + namespace +  ' Package.');
-					}
+					}													
 				}
 				else {
 					console.log("Failed with state: " + state);
 				}
+				//hiding the spinner
+				component.set('v.showSpinner', false);			
 			});
 			//to be removed when moving to HCM
 			let startTime = performance.now();
@@ -61,5 +65,24 @@
 		}
 
 		return rows;
+	},
+	
+	/* @description Show or hide the spinner. To do that we use the SLDS classes for showing / hiding components
+	 * @param		component where the hide is going to happen
+	 * @return		none
+	 */
+	toggleSpinner: function(component, showSpinner){
+		try{
+			let spinner = component.find('spinner');
+			if(showSpinner){
+				$A.util.addClass(spinner, 'slds-show');
+				$A.util.removeClass(spinner,'slds-hide');
+			}else{
+				$A.util.addClass(spinner, 'slds-hide');
+				$A.util.removeClass(spinner,'slds-show');		
+			}
+		}catch(err){
+			console.error(err);
+		}
 	}
 })

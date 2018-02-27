@@ -9,11 +9,13 @@
 	 */
 	doInit: function (component, event, helper) {
 		try{
+			//on init, hide the spinner
+			component.set('v.showSpinner', false);
 			let packageNamespace = component.get('v.packageName');
 			//to be removed when moving to HCM??
-			console.log('event: ' + packageNamespace.namespace);
+			console.log('event: ' + packageNamespace.namespace);			
 			//query Rows, sort rows and clear filter
-			helper.queryRows(component,packageNamespace.namespace);			
+			helper.queryRows(component,packageNamespace.namespace);				
 		}catch(err){
 			console.error(err);
 		}
@@ -35,5 +37,15 @@
 		} catch(err){
 			console.error(err);
 		}
-	}
+	},
+
+	/* @description Show/hide the spinner. 
+	 * @param		component where the action is going to happen
+	 * @param		events registered in the Component
+	 * @param		helper for the Component	
+	 * @return		none
+	 */
+	toggleSpinner: function(component,event,helper){		
+		helper.toggleSpinner(component, event.getParam("value"));		
+	}	
 })
