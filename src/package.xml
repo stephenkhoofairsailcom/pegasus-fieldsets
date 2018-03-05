@@ -11,6 +11,9 @@
         <members>FieldsetPackage</members>
         <members>FieldsetRow</members>
         <members>TestClass</members>
+        <members>TestController</members>
+        <members>TestData</members>
+        <members>egServerSideActionController</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -20,11 +23,30 @@
     <types>
         <members>FieldSetManager</members>
         <members>FieldSetManagerApp</members>
+        <members>FieldSetManagerService</members>
+        <members>FieldsetManagerAppTemplate</members>
         <members>FieldsetTabContent</members>
         <members>FieldsetTabs</members>
+        <members>LightningComponentBundle1</members>
         <members>ObjectFilter</members>
         <members>ObjectTable</members>
         <members>PackageTitle</members>
+        <members>egApplicationEvent</members>
+        <members>egAttributeTypes</members>
+        <members>egClientSideAction</members>
+        <members>egComponentEvent</members>
+        <members>egComponentMethod</members>
+        <members>egConditionalUI</members>
+        <members>egEventHandling</members>
+        <members>egFacet</members>
+        <members>egGlobalValueProvider</members>
+        <members>egLdsView</members>
+        <members>egRenderElement</members>
+        <members>egServerSideActionCallback</members>
+        <members>jasmineTests</members>
+        <members>lts_jasmineRunner</members>
+        <members>lts_mochaRunner</members>
+        <members>mochaTests</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -44,6 +66,14 @@
         <name>CustomField</name>
     </types>
     <types>
+        <members>greeting</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
         <members>Fieldset_Member__mdt</members>
         <members>Fieldset__mdt</members>
         <name>CustomObject</name>
@@ -52,6 +82,23 @@
         <members>Fieldset_Member__mdt-Fieldset Member Layout</members>
         <members>Fieldset__mdt-Fieldset Layout</members>
         <name>Layout</name>
+    </types>
+    <types>
+        <members>FSManagementTests</members>
+        <members>jasmineExampleTests</members>
+        <members>jasmineHelloWorldTests</members>
+        <members>jasmineLightningDataServiceTests</members>
+        <members>ltngCore</members>
+        <members>lts_chai</members>
+        <members>lts_jasmine</members>
+        <members>lts_jasmineboot</members>
+        <members>lts_mochaBootJs</members>
+        <members>lts_mochaCss</members>
+        <members>lts_mochaJs</members>
+        <members>lts_sinon</members>
+        <members>lts_testutil</members>
+        <members>mochaExampleTests</members>
+        <name>StaticResource</name>
     </types>
     <version>41.0</version>
 </Package>

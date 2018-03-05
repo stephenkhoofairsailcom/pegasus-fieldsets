@@ -7,30 +7,10 @@
 	 * @return		none
 	 */
 	doInit: function (component, event, helper) {
-		// get the name of the packages form the controller
-		let action = component.get('c.getPackages');
-        // Add callback behavior for when response is received
-        action.setCallback(this, function(response) {
-            let state = response.getState();
-            if (state === "SUCCESS") {
-                component.set("v.packageNames", response.getReturnValue());				
-            } else {
-                console.log("Failed with state: " + state);
-            }
-        });
-		$A.enqueueAction(action);
-		
-		let getMap = component.get('c.getPackagesMap');
-        // Add callback behavior for when response is received
-        getMap.setCallback(this, function(response) {
-            let state = response.getState();
-            if (state === "SUCCESS") {
-                component.set("v.packagesMap", response.getReturnValue());				
-            } else {
-                console.log("Failed with state: " + state);
-            }
-        });
-		$A.enqueueAction(getMap);
+		// get the name of the packages form the controller	
+		//changed to follow best practices --> logic in controller
+		helper.getPackages(component);
+		helper.getPackagesMap(component);
 
 		//set default value for currentPackage -> HCM
 		component.set('v.currentPackage', {'name':'HCM', 'namespace':'fHCM2'});				

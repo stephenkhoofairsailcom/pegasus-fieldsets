@@ -9,7 +9,6 @@
 			//showing the spinner
 			component.set('v.showSpinner', true);	
 			let action = component.get('c.getRows');		
-		
 			action.setParams({
 			   "packageName": namespace
 			});

@@ -1,0 +1,14 @@
+<aura:component controller="FieldSetManagerController">
+
+	<!-- this is the service component for the FieldSetManager Component-->
+	<aura:method name="getPackages" action="{!c.fsm_getPackages}">
+		<aura:attribute name="callback" type="Function"/>
+	</aura:method>
+	
+
+	<aura:method name="getRows" action="{!c.fsm_getRows}">
+		<aura:attribute name="namespace" type="String"/>
+		<aura:attribute name="callback" type="Function"/>
+	</aura:method>
+
+</aura:component>

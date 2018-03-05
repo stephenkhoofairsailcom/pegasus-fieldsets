@@ -10,20 +10,46 @@
 		let packageName = myPackageMap[clickedTab];		
 		return {'name':packageName, 'namespace':clickedTab};
 	},
-
-	/* @description displays the given error in a cool look&feel component	
-	 * @param		error message
-	 * @return		none
-	 */
-	showError : function(errMsg) {
-		var toastEvent = $A.get("e.force:showToast");
-		toastEvent.setParams({
-			mode: 'sticky',
-			type: 'error',
-			title: 'Error',
-			message: errMsg
-		});
-		toastEvent.fire();
+	// added to avoid anonymous functions and call them from tests
+	getPackages: function(component){
+		let action = component.get('c.getPackages');
+        let self = this;
+		// Add callback behavior for when response is received
+		action.setCallback(this, function(response) {           
+		   self.actionResponseHandler(response, self.updatePackageNames, component);
+		    
+        });		
+		$A.enqueueAction(action);
+	},
+	// added to avoid anonymous functions and call them from tests
+	actionResponseHandler: function(response, update, component){
+		let state = response.getState();
+		let retValue = response.getReturnValue();
+        
+		if (state === "SUCCESS") {           
+			update(retValue, component);	
+							
+        } else {			
+            console.log("Failed with state: " + state);
+        }
+	},
+	// added to avoid anonymous functions and call them from tests
+	updatePackageNames:function(result, component){
+		component.set("v.packageNames", result);
+		
+	},
+	// added to avoid anonymous functions and call them from tests
+	getPackagesMap: function(component){
+		let action = component.get('c.getPackagesMap');
+        let self = this;
+		// Add callback behavior for when response is received
+        action.setCallback(this, function(response) {
+			self.actionResponseHandler(response, self.updatePackageMap, component);  
+        });
+		$A.enqueueAction(action);
+	},
+	// added to avoid anonymous functions and call them from tests
+	updatePackageMap:function(result, component){
+		component.set("v.packagesMap", result);	            
 	}
-
 })

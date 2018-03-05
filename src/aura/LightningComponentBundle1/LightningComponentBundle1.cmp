@@ -1,0 +1,65 @@
+<aura:component controller="TestController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+	<aura:attribute name="items"	type="TestData[]" />
+	<aura:attribute name="mydata" type="Object"/>
+	
+	<!-- FieldSetManagerService definitions-->
+	<c:FieldSetManagerService aura:id="fsmService"/>
+	<aura:attribute name="packageNames" type="FieldsetPackage[]" />
+
+	<aura:attribute name="rows" type="FieldsetRow[]" />
+	<!-- end FieldSetManagerService definitions-->
+
+	<!-- declare onchange event handler for v.rows-->
+	<aura:handler name="change" value="{!v.rows}" action="{!c.onRowChange}"/>
+
+    <lightning:layout class="slds-page-header slds-page-header--object-home">	
+		<lightning:layoutItem >
+			<lightning:icon iconName="standard:scan_card" alternativeText="test" />
+		</lightning:layoutItem>
+		
+	</lightning:layout>
+		<lightning:layout >
+			<lightning:layoutitem >
+
+				
+
+			</lightning:layoutitem>				
+		</lightning:layout>
+
+		<lightning:layout >	
+			<lightning:layoutItem padding="around-small" size="3">
+				<div class="slds-scrollable_y" style='height:100px'>
+					<aura:iteration items="{!v.items}" var="item">
+						<div aria-labelledby="newCampingform">DeveloperName : {!item.DeveloperName}</div>
+					</aura:iteration>					
+				</div>
+
+			</lightning:layoutItem>
+			<lightning:layoutItem padding="around-small" size="3">
+				My Link: <ui:outputURL aura:id="aURL" target="_blank" label="my Label" value="http://www.google.com"/>
+			</lightning:layoutItem>
+
+		</lightning:layout>	
+		<lightning:layout >	
+			<lightning:layoutItem padding="around-small" size="12">
+				<div>Test Service->{!v.packageNames.length} packages.</div>
+				<div>
+					<aura:iteration var='packageName' items="{!v.packageNames}">
+						{!packageName.name},
+					</aura:iteration>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>	
+
+		<lightning:layout >	
+			<lightning:layoutItem padding="around-small" size="12">
+					<aura:iteration var='row' items="{!v.rows}">
+						<div>{!row.name},</div>
+					</aura:iteration>
+			</lightning:layoutItem>
+		</lightning:layout>	
+
+
+</aura:component>
